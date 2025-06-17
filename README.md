@@ -1,8 +1,11 @@
 # ⚙️ Multi-Controlled Unitary Construction with Basic Gates in Qiskit
 
-This project implements the construction of multi-controlled single-qubit unitary gates \( C^nU \) using ancilla qubits, built exclusively from **arbitrary 1-qubit gates** (via ZYZ decomposition) and **CNOT (CX) gates**. No Toffoli or other complex controlled gates are assumed; all logic is constructed from the universal gate set \(\{U, \text{CX}\}\), consistent with standard gate-model quantum computing.
+This project implements the construction of an arbitrary, multi-controlled, single-qubit unitary gate using ancilla qubits, built exclusively from simple 1-qubit gates, (via ZYZ decomposition), and CNOT (CX) gates. All logic is constructed from the universal gate set {U, CX}. 
 
-Each function in the accompanying code is preceded by detailed derivations and justifications in Markdown cells, explaining the decomposition, gate counts, and correctness — inspired by the approach of Nielsen & Chuang (2010).
+Each function is preceded by derivations and justifications in Markdown cells, explaining the decomposition, inspired by the approach of Nielsen & Chuang (2010).
+Each function displays it's corresponding circuit when run. 
+
+The final function, MCU(n, U), MultiControlled U gate, has 2 inputs, n = the number of qubits, U = any unitary.
 
 > 📄 Reference:  
 > Nielsen, M. A., & Chuang, I. L. (2010). *Quantum Computation and Quantum Information* (10th anniversary ed., p. 181). Cambridge University Press.
