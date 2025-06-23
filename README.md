@@ -48,7 +48,7 @@ Lastly, we benchmark the implementation for small values of \( n \), showing gat
    - (Optional) Uncomment the example usage line to view the multi-control circuit for \( n = 3 \) and a random unitary.
 
 6. **Run the benchmarking cell**  
-   - Displays gate counts, circuit depths, and ancilla counts for \( n = 2 \) to \( 5 \).
+   - Displays gate counts, circuit depths, and ancilla counts for  n = 2:6.
 
 ---
 
