@@ -1,32 +1,65 @@
 # ⚙️ Multi-Controlled Unitary Construction with Basic Gates in Qiskit
 
-This project implements the construction of an arbitrary, multi-controlled, single-qubit unitary gate using ancilla qubits, built exclusively from simple 1-qubit gates, (via ZYZ decomposition), and CNOT (CX) gates. All logic is constructed from the universal gate set {U, CX}. 
+This code constructs a multi-controlled unitary gate \( C^n U \), using only 1-qubit unitaries and `cx` gates, such that:
 
-Each function is preceded by derivations and justifications in Markdown cells, explaining the decomposition, inspired by the approach of Nielsen & Chuang (2010).
-Each function displays it's corresponding circuit when run. 
+\[
+C^n U \, |x\rangle_n \, |y\rangle_1 = 
+\begin{cases} 
+|x\rangle_n \, U|y\rangle_1, & \text{if } x = (1, 1, \dots, 1), \\
+|x\rangle_n \, |y\rangle_1, & \text{otherwise}.
+\end{cases}
+\]
 
-The final function, MCU(n, U), MultiControlled U gate, has 2 inputs, n = the number of qubits, U = any unitary.
+## Overview
 
-> 📄 Reference:  
-> Nielsen, M. A., & Chuang, I. L. (2010). *Quantum Computation and Quantum Information* (10th anniversary ed., p. 181). Cambridge University Press.
+Before constructing the multi-controlled gate (`MCU`), we first define:
+- A **controlled-unitary gate** (`cv_gate`) using the **ZYZ decomposition**, 
+- A **Toffoli gate** with flexible control/target assignment.
+
+These constructions follow **Nielsen and Chuang**:
+- `cv_gate`: *Figure 4.6*
+- `Toffoli`: *Figure 4.9*
+- `MCU`: *Figure 4.10*
+
+Lastly, we benchmark the implementation for small values of \( n \), showing gate counts, circuit depth, and ancilla usage.
 
 ---
 
-## 📚 Contents
+## Benchmark Results
 
-- ZYZ decomposition of arbitrary 1-qubit unitary gates  
-- Construction of controlled-unitary (`cv_gate`) from ZYZ parameters  
-- Toffoli gate implementation from Clifford+T and CNOT gates  
-- Recursive construction of multi-controlled unitary gates (`MCU`) with ancilla qubits  
-- Circuit visualization and benchmarking (gate counts, depth, ancilla usage)
+| n | Gate Count | Circuit Depth | Ancillas |
+|--:|------------|----------------|----------|
+| 2 | {'cx': 14, 't': 8, 'tdg': 6, 'h': 4, 'rz': 2, 'ry': 1} | 25 | 1 |
+| 3 | {'cx': 26, 't': 16, 'tdg': 12, 'h': 8, 'rz': 2, 'ry': 1} | 46 | 2 |
+| 4 | {'cx': 38, 't': 24, 'tdg': 18, 'h': 12, 'rz': 2, 'ry': 1} | 67 | 3 |
+| 5 | {'cx': 50, 't': 32, 'tdg': 24, 'h': 16, 'rz': 2, 'ry': 1} | 88 | 4 |
+
+- **Gate count growth:** \( O(n^2) \)
+- **Circuit depth growth:** \( O(n) \)
+- **Ancilla usage:** \( O(n) \)
 
 ---
 
-## 🧠 Theory and Justification
+## Usage Instructions
 
-- Each function is annotated with mathematical derivations or explanations for correctness and optimality.  
-- The `cv_gate` uses ZYZ decomposition and carefully extracts Euler angles to reconstruct any single-qubit unitary from elementary gates.  
-- The Toffoli implementation is given in terms of elementary gates (H, T, T†, CX), and serves as a building block for higher controlled gates.  
-- The `MCU` function recursively builds a multi-controlled \(U\) gate by controlling ancilla qubits in layers, leveraging the Toffoli construction and `cv_gate`.  
-- Benchmarks illustrate the resource scaling, showing gate count grows as \(O(n^2)\), circuit depth as \(O(n)\), and ancilla count as \(O(n)\).
+1. **Run the `cv_gate` cell**  
+   - (Optional) Uncomment the example usage line to view the circuit for a random unitary.
+
+2. **Run the `toffoli` cell**  
+   - (Optional) Uncomment the example usage line to view the Toffoli circuit.
+
+3. **Run the `MCU` cell**  
+   - (Optional) Uncomment the example usage line to view the multi-control circuit for \( n = 3 \) and a random unitary.
+
+4. **Run the benchmarking cell**  
+   - Displays gate counts, circuit depths, and ancilla counts for \( n = 2 \) to \( 5 \).
+
+---
+
+## References
+
+- Nielsen, M. A., & Chuang, I. L. (2010). *Quantum Computation and Quantum Information* (10th Anniversary Edition).  
+  - Figure 4.6: Controlled-unitary decomposition  
+  - Figure 4.9: Toffoli gate  
+  - Figure 4.10: Multi-controlled unitaries
 
