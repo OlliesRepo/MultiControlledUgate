@@ -34,16 +34,20 @@ Lastly, we benchmark the implementation for small values of \( n \), showing gat
 
 ## Usage Instructions
 
-1. **Run the `cv_gate` cell**  
+1. **Run the cell of packages**
+   
+2. **Run the markup cell explaining the MCU gate and ZYZ decomposition**
+   
+3. **Run the `cv_gate` cell**  
    - (Optional) Uncomment the example usage line to view the circuit for a random unitary.
 
-2. **Run the `toffoli` cell**  
+4. **Run the `toffoli` cell**  
    - (Optional) Uncomment the example usage line to view the Toffoli circuit.
 
-3. **Run the `MCU` cell**  
+5. **Run the `MCU` cell**  
    - (Optional) Uncomment the example usage line to view the multi-control circuit for \( n = 3 \) and a random unitary.
 
-4. **Run the benchmarking cell**  
+6. **Run the benchmarking cell**  
    - Displays gate counts, circuit depths, and ancilla counts for \( n = 2 \) to \( 5 \).
 
 ---
