@@ -36,7 +36,7 @@ Lastly, we benchmark the implementation for small values of \( n \), showing gat
 
 1. **Run the cell of packages**
    
-2. **If they're not compiles, run the markup cell explaining the MCU gate and ZYZ decomposition**
+2. **If they're not already compiled, run the markup cell explaining the MCU gate and ZYZ decomposition**
    
 3. **Run the `cv_gate` cell**  
    - (Optional) Uncomment the example usage line to view the circuit for a random unitary.
