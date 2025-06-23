@@ -1,14 +1,6 @@
 # ⚙️ Multi-Controlled Unitary Construction with Basic Gates in Qiskit
 
-This code constructs a multi-controlled unitary gate \( C^n U \), using only 1-qubit unitaries and `cx` gates, such that:
-
-\[
-C^n U \, |x\rangle_n \, |y\rangle_1 = 
-\begin{cases} 
-|x\rangle_n \, U|y\rangle_1, & \text{if } x = (1, 1, \dots, 1), \\
-|x\rangle_n \, |y\rangle_1, & \text{otherwise}.
-\end{cases}
-\]
+This code constructs a multi-controlled unitary gate \( C^n U \), using only 1-qubit unitaries and `cx` gates.
 
 ## Overview
 
