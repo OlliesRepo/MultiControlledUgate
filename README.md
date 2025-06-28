@@ -13,7 +13,7 @@ These constructions follows **Nielsen and Chuang**:
 - `Toffoli`: *Figure 4.9*
 - `MCU`: *Figure 4.10*
 
-Lastly, we benchmark the implementation for small values of \( n \), showing gate counts, circuit depth, and ancilla usage.
+Lastly, we benchmark the implementation for small values of n, showing gate counts, circuit depth, and ancilla usage.
 
 ---
 
