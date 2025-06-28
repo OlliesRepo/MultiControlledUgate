@@ -8,7 +8,7 @@ Before constructing the multi-controlled gate (`MCU`), we first define:
 - A **controlled-unitary gate** (`cv_gate`) using the **ZYZ decomposition**, 
 - A **Toffoli gate** with flexible control/target assignment.
 
-These constructions follows **Nielsen and Chuang**:
+These constructions follow **Nielsen and Chuang**:
 - `cv_gate`: *Figure 4.6*
 - `Toffoli`: *Figure 4.9*
 - `MCU`: *Figure 4.10*
